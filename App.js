@@ -1,9 +1,19 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Root from './Root';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return <Root />;
-  }
-}
+import FrontPage from './screens/FrontPage';
+import Ask from './screens/Ask';
+import Show from './screens/Show';
+
+const TabNavigator = createBottomTabNavigator({
+  Home: {
+    screen: FrontPage,
+  },
+  Ask: {
+    screen: Ask,
+  },
+  Show: {
+    screen: Show,
+  },
+});
+
+export default createAppContainer(TabNavigator);
