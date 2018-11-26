@@ -34,7 +34,7 @@ export default class FrontPage extends React.Component {
   render() {
     return (
       <SafeAreaView>
-        <Header headerText="Albums" />
+        <Header headerText="Hacker News" />
         <ScrollView>{this.renderItems()}</ScrollView>
       </SafeAreaView>
     );
