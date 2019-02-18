@@ -1,8 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import Card from './Card';
-import CardSection from './CardSection';
+import {
+  Card, CardItem, Body, Text,
+} from 'native-base';
+// import Card from './Card';
+
 
 const urlParse = require('url-parse');
 
@@ -26,33 +28,41 @@ class ItemDetail extends Component {
   }
 
   render() {
+    const {
+      title, url, points, num_comments,
+    } = this.props.item;
     return (
       <Card>
-        <CardSection>
-          <Text>{this.props.item.title}</Text>
-        </CardSection>
-        <View style={styles.grayText}>
-
-          <CardSection>
+        <CardItem>
+          <Body>
+            <Text>{title}</Text>
+          </Body>
+        </CardItem>
+        <CardItem>
+          <Body>
             <Text style={styles.grayText}>
-              {this.parseHost(this.props.item.url)}
+              {this.parseHost(url)}
             </Text>
-          </CardSection>
-          <CardSection>
+          </Body>
+        </CardItem>
+        <CardItem>
+          <Body>
             <Text style={styles.grayText}>
-              {this.props.item.points}
+              {points}
               {' '}
               points
             </Text>
-          </CardSection>
-          <CardSection>
+          </Body>
+        </CardItem>
+        <CardItem>
+          <Body>
             <Text style={styles.grayText}>
-              {this.props.item.num_comments}
+              {num_comments}
               {' '}
               comments
             </Text>
-          </CardSection>
-        </View>
+          </Body>
+        </CardItem>
       </Card>
     );
   }

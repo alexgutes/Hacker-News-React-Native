@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Container, Content } from 'native-base';
 import ItemDetail from '../components/ItemDetail';
 import Header from '../components/Header';
 
@@ -27,7 +28,10 @@ export default class FrontPage extends React.Component {
     return (
       <SafeAreaView>
         <Header headerText="HN Front Page" />
+
+
         <ScrollView>{this.renderItems()}</ScrollView>
+
       </SafeAreaView>
     );
   }
