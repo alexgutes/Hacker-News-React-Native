@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { WebBrowser } from 'expo';
 import {
   Card, CardItem, Body, Text,
 } from 'native-base';
@@ -33,7 +34,7 @@ class ItemDetail extends Component {
     } = this.props.item;
     return (
       <Card>
-        <CardItem>
+        <CardItem header button onPress={() => WebBrowser.openBrowserAsync(url)}>
           <Body>
             <Text>{title}</Text>
           </Body>

@@ -1,8 +1,10 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView, ScrollView } from 'react-native';
+import {
+  Container, Content, Card, CardItem, Text, Body,
+} from 'native-base';
 import ItemDetail from '../components/ItemDetail';
-import Header from '../components/Header';
+import HeaderBar from '../components/HeaderBar';
 
 
 export default class Show extends React.Component {
@@ -25,10 +27,12 @@ export default class Show extends React.Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <Header headerText="Show HN" />
-        <ScrollView>{this.renderItems()}</ScrollView>
-      </SafeAreaView>
+      <Container>
+        <HeaderBar title="Show HN" />
+        <Content padder>
+          <ScrollView>{this.renderItems()}</ScrollView>
+        </Content>
+      </Container>
     );
   }
 }

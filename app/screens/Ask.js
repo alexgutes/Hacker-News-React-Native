@@ -1,8 +1,9 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Content, Container } from 'native-base';
 import ItemDetail from '../components/ItemDetail';
-import Header from '../components/Header';
+import HeaderBar from '../components/HeaderBar';
 
 
 export default class Ask extends React.Component {
@@ -25,10 +26,12 @@ export default class Ask extends React.Component {
 
   render() {
     return (
-      <SafeAreaView>
-        <Header headerText="Ask HN" />
-        <ScrollView>{this.renderItems()}</ScrollView>
-      </SafeAreaView>
+      <Container>
+        <HeaderBar title="Ask HN" />
+        <Content padder>
+          <ScrollView>{this.renderItems()}</ScrollView>
+        </Content>
+      </Container>
     );
   }
 }
