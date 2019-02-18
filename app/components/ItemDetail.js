@@ -27,23 +27,21 @@ class ItemDetail extends Component {
         </CardSection>
         <CardSection>
           <Text>
-(
             {this.parseHost(this.props.item.url)}
-)
           </Text>
         </CardSection>
         <CardSection>
           <Text>
             {this.props.item.points}
             {' '}
-points
+            points
           </Text>
         </CardSection>
         <CardSection>
           <Text>
             {this.props.item.num_comments}
             {' '}
-comments
+            comments
           </Text>
         </CardSection>
       </Card>

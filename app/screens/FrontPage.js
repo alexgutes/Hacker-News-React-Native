@@ -4,18 +4,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import ItemDetail from '../components/ItemDetail';
 import Header from '../components/Header';
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
 
 export default class FrontPage extends React.Component {
   state = {
     items: [],
-    // show: [],
   };
 
   componentWillMount() {
@@ -34,7 +26,7 @@ export default class FrontPage extends React.Component {
   render() {
     return (
       <SafeAreaView>
-        <Header headerText="Hacker News" />
+        <Header headerText="HN Front Page" />
         <ScrollView>{this.renderItems()}</ScrollView>
       </SafeAreaView>
     );
