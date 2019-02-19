@@ -10,12 +10,16 @@ import {
 const urlParse = require('url-parse');
 
 const styles = {
+  titleText: {
+    fontFamily: 'open-sans',
+  },
   grayText: {
+    fontFamily: 'open-sans',
     color: '#808080',
   },
 };
 
-class ItemDetail extends Component {
+class ItemCard extends Component {
   parseHost(url) {
     if (url === null) {
       return 'Hacker News';
@@ -36,7 +40,7 @@ class ItemDetail extends Component {
       <Card>
         <CardItem header button onPress={() => WebBrowser.openBrowserAsync(url)}>
           <Body>
-            <Text>{title}</Text>
+            <Text style={styles.titleText}>{title}</Text>
           </Body>
         </CardItem>
         <CardItem>
@@ -69,4 +73,4 @@ class ItemDetail extends Component {
   }
 }
 
-export default ItemDetail;
+export default ItemCard;

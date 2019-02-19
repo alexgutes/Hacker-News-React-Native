@@ -1,9 +1,9 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import {
-  Container, Content, Card, CardItem, Text, Body,
+  Container, Content,
 } from 'native-base';
-import ItemDetail from '../components/ItemDetail';
+import ItemCard from '../components/ItemCard';
 import HeaderBar from '../components/HeaderBar';
 
 
@@ -22,7 +22,7 @@ export default class Show extends React.Component {
 
   renderItems() {
     const { items } = this.state;
-    return items.map(item => <ItemDetail key={item.objectID} item={item} />);
+    return items.map(item => <ItemCard key={item.objectID} item={item} />);
   }
 
   render() {

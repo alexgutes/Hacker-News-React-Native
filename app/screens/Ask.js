@@ -1,8 +1,7 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Content, Container } from 'native-base';
-import ItemDetail from '../components/ItemDetail';
+import ItemCard from '../components/ItemCard';
 import HeaderBar from '../components/HeaderBar';
 
 
@@ -21,7 +20,7 @@ export default class Ask extends React.Component {
 
   renderItems() {
     const { items } = this.state;
-    return items.map(item => <ItemDetail key={item.objectID} item={item} />);
+    return items.map(item => <ItemCard key={item.objectID} item={item} />);
   }
 
   render() {

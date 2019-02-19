@@ -12,8 +12,12 @@ const Tab = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: 'tomato',
+      activeTintColor: 'rgb(255,91,1)',
       inactiveTintColor: 'gray',
+      labelStyle: {
+        fontSize: 18,
+        fontFamily: 'open-sans',
+      },
     },
   },
 );
