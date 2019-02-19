@@ -1,7 +1,7 @@
 <p align='center'>
 <b>RN HN</b>: An Hacker News client built with React Native
 <br/>
-<a src='https://expo.io/@alexgutes/hacker-news-client'>expo.io/@alexgutes/hacker-news-client</a>
+<a href='https://expo.io/@alexgutes/hacker-news-client'>expo.io/@alexgutes/hacker-news-client</a>
 
 ![fav](https://user-images.githubusercontent.com/34469795/52988517-cdbb8e80-33bc-11e9-8273-199bae493a8c.png)
 </p>
