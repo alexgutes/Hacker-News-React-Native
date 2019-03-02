@@ -1,20 +1,42 @@
 import React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native';
 import { Container, Content } from 'native-base';
 import ItemCard from '../components/ItemCard';
 import HeaderBar from '../components/HeaderBar';
 
 
 export default class FrontPage extends React.Component {
-  state = {
-    items: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      items: [],
+      page: 0,
+      error: null,
+      refreshing: false,
+    };
+  }
 
   componentWillMount() {
-    fetch('http://hn.algolia.com/api/v1/search?tags=front_page')
+    this.makeRemoteRequest();
+  }
+
+  makeRemoteRequest = () => {
+    const { page, items } = this.state;
+    const url = `http://hn.algolia.com/api/v1/search?tags=front_page&page=${page}`;
+    this.setState({ loading: true });
+    fetch(url)
       .then(response => response.json())
       .then((response) => {
-        this.setState({ items: response.hits });
+        this.setState({
+          items: page === 0 ? response.hits : [...items, ...response.hits],
+          error: response.error || null,
+          loading: false,
+          refreshing: false,
+        });
+      })
+      .catch((error) => {
+        this.setState({ error, loading: false });
       });
   }
 
@@ -24,11 +46,18 @@ export default class FrontPage extends React.Component {
   }
 
   render() {
+    const { items } = this.state;
     return (
       <Container>
         <HeaderBar title="HN Front Page" />
         <Content padder>
-          <ScrollView>{this.renderItems()}</ScrollView>
+          <FlatList
+            data={items}
+            renderItem={({ item }) => (
+              <ItemCard item={item} />
+            )}
+            keyExtractor={item => item.objectID}
+          />
         </Content>
       </Container>
     );
