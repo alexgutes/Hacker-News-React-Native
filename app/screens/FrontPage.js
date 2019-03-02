@@ -40,9 +40,15 @@ export default class FrontPage extends React.Component {
       });
   }
 
-  renderItems() {
-    const { items } = this.state;
-    return items.map(item => <ItemCard key={item.objectID} item={item} />);
+  handleLoadMore = () => {
+    console.log('loadmore');
+    this.setState({
+      pages: this.state.pages + 1,
+    },
+    () => {
+      this.makeRemoteRequest();
+      console.log('second request made');
+    });
   }
 
   render() {
@@ -57,6 +63,8 @@ export default class FrontPage extends React.Component {
               <ItemCard item={item} />
             )}
             keyExtractor={item => item.objectID}
+            onEndReached={this.handleLoadMore}
+            onEndReachedThreshold={0}
           />
         </Content>
       </Container>
