@@ -23,7 +23,7 @@ export default class FrontPage extends React.Component {
 
   makeRemoteRequest = () => {
     const { page, items } = this.state;
-    const url = `http://hn.algolia.com/api/v1/search?tags=front_page&page=${page}`;
+    const url = `http://hn.algolia.com/api/v1/search?tags=front_page&page=${page}&hitsPerPage=15`;
     this.setState({ loading: true });
     fetch(url)
       .then(response => response.json())
@@ -41,13 +41,11 @@ export default class FrontPage extends React.Component {
   }
 
   handleLoadMore = () => {
-    console.log('loadmore');
-    this.setState({
-      pages: this.state.pages + 1,
-    },
+    this.setState(state => ({
+      page: state.page + 1,
+    }),
     () => {
       this.makeRemoteRequest();
-      console.log('second request made');
     });
   }
 
@@ -56,14 +54,18 @@ export default class FrontPage extends React.Component {
     return (
       <Container>
         <HeaderBar title="HN Front Page" />
-        <Content padder>
+        <Content
+          padder
+          style={{ flex: 1 }}
+          contentContainerStyle={{ flex: 1 }}
+        >
           <FlatList
             data={items}
             renderItem={({ item }) => (
               <ItemCard item={item} />
             )}
             keyExtractor={item => item.objectID}
-            onEndReached={this.handleLoadMore}
+            onEndReached={() => this.handleLoadMore()}
             onEndReachedThreshold={0}
           />
         </Content>
