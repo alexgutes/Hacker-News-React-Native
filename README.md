@@ -1,5 +1,5 @@
 <p align='center'>
-<b>RN HN</b>: An Hacker News client built with React Native
+<b>RN-HN</b>: A mobile Hacker News client built with React Native
 <br/>
 <a href='https://expo.io/@alexgutes/hacker-news-client'>expo.io/@alexgutes/hacker-news-client</a>
 
@@ -7,7 +7,7 @@
 </p>
 
 ### About
-RN HN is a barebones mobile client for browsing the popular tech news site [Hacker News](https://news.ycombinator.com/). Powered by [Algolia HN Search API](https://hn.algolia.com/api).
+RN-HN is a barebones mobile client for browsing the popular tech news site [Hacker News](https://news.ycombinator.com/). Powered by [Algolia HN Search API](https://hn.algolia.com/api).
 ### Features
  - [x] **Browse Multiple Feeds**: Able to browse the default front page, Show HN and Ask HN.
  - [x] **Open links in-app**: Pressing a card opens the url with in-app Safari browser
