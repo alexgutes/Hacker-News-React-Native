@@ -11,9 +11,10 @@ RN-HN is a barebones mobile client for browsing the popular tech news site [Hack
 ### Features
  - [x] **Browse Multiple Feeds**: Able to browse the default front page, Show HN and Ask HN.
  - [x] **Open links in-app**: Pressing a card opens the url with in-app Safari browser
+ - [x] **Infinite Scroll**: Ability to view more items as the user scrolls
+
 ### Next Features
 - [ ] **View Comments**: Ability to view all comments associated with the post
-- [ ] **Infinite Scroll**: Ability to view more items as the user scrolls
 
 ### Tech Stack
 - [React Native](https://github.com/facebook/react-native)
