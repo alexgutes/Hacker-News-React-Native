@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { Container, Content } from 'native-base';
+import { Container, Content, Spinner } from 'native-base';
 import ItemCard from '../components/ItemCard';
 import HeaderBar from '../components/HeaderBar';
 
@@ -49,6 +49,13 @@ export default class FrontPage extends React.Component {
     });
   }
 
+  renderSpinner = () => {
+    const { loading } = this.state;
+    if (!loading) return null;
+
+    return <Spinner color="#ff5b01" />;
+  }
+
   render() {
     const { items } = this.state;
     return (
@@ -67,6 +74,7 @@ export default class FrontPage extends React.Component {
             keyExtractor={item => item.objectID}
             onEndReached={() => this.handleLoadMore()}
             onEndReachedThreshold={0}
+            ListFooterComponent={this.renderSpinner}
           />
         </Content>
       </Container>

@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native';
 
 const styles = {
   viewStyle: {
-    backgroundColor: 'rgb(255,91,1)',
+    backgroundColor: '#ff5b01',
 
   },
   textStyle: {
